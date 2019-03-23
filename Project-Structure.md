@@ -1,4 +1,4 @@
-# Project Structure
+### Project Structure
 
 The WAVE Architecture is implied upon the top-level source code directory _commonly_ `src\`.
 The structural rules are not intended to depict the entire src directory but to conflate with other modules
@@ -26,13 +26,13 @@ The component's views should only be imported by it's controller or a controller
 `<component-name>-events.js` or `<event-type>-events.js` to be used at discretion.
 
 
-### Conventions 
+#### Conventions 
 - Multiple markup-templates can be placed in a single view file and exported via named exports. 
 - A view file should not import another view file.
 - View files should not import logic from controllers.
 - Controllers should import markup from view files when plausible.
 
-### WAVE File Structure
+#### WAVE File Structure
 Here's an example of the WAVE file structure.  
 ```bash
 src/
@@ -77,12 +77,12 @@ src/
 - **state-tree.js**: A central place for stateObjects to be used globally across the application.
 - **config.json**: A human editable config that is fetched into main.js, can also be config.js if feasible.
 - **main.js**: The main application file. The root import. _[required]_
-- **ui/render.js**: A function or set of functions that renders the inital views depending on when the applicaton loads. _[required]_
+- **ui/render.js**: A function or set of functions that renders the initial views depending on when the application loads. _[required]_
 - **ui/events.js**: Global events that affect all aspects of the SPA.
-- **routes.js**: A list of routes using first-class functons for validation.
+- **routes.js**: A list of routes using first-class functions for validation.
 
 ##### Nesting [guide]
-Avoid deep nesting. Strive to limit the directory depth to a max of 4 levels if possible _this obviously cannot always be attained_. Adopting a prefix can sometimes reduce folder depth complexites:
+Avoid deep nesting. Strive to limit the directory depth to a max of 4 levels if possible _this obviously cannot always be attained_. Adopting a prefix can sometimes reduce folder depth complexities:
 _3 levels deep_
 ```bash
 /src/ui/page/
@@ -116,6 +116,4 @@ _2 levels deep_
                   events.js
 ```
 
-
-
-
+Wave Architecture 2019 [MIT](https://github.com/julienetie/wavefront/blob/master/LICENSE)
