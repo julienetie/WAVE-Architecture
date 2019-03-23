@@ -87,7 +87,7 @@ Complex nesting can cause unecessary complexities in your project.
 Avoid deep nesting. Aim to limit folder depth to a max of 4 if possible, _this cannot always be attained_.
 Adopting a prefix can reduce folder complexites:
 
-4 deep
+3 deep
 ```bash
 /src/ui/page/
              home/
@@ -103,7 +103,7 @@ Adopting a prefix can reduce folder complexites:
                   view.js
                   events.js
 ```
-vs  3 deep
+vs  2 deep
 ```bash
 /src/ui/
         page-home/
