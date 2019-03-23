@@ -81,7 +81,44 @@ src/
 - **ui/events.js**: Global events that affect all aspects of the SPA.
 - **routes.js**: A list of routes using first-class functons for validation.
 
+#### Guide
+##### Nesting 
+Complex nesting can cause unecessary complexities in your project. 
+Avoid deep nesting. Aim to limit folder depth to a max of 4 if possible, _this cannot always be attained_.
+Adopting a prefix can reduce folder complexites:
 
+4 deep
+```bash
+/src/ui/page/
+             home/
+                  controller.js
+                  view.js
+                  events.js
+             about/
+                  controller.js
+                  view.js
+                  events.js
+             contact/ 
+                  controller.js
+                  view.js
+                  events.js
+```
+vs  3 deep
+```bash
+/src/ui/
+        page-home/
+                  controller.js
+                  view.js
+                  events.js
+        page-about/
+                  controller.js
+                  view.js
+                  events.js
+        page-contact/ 
+                  controller.js
+                  view.js
+                  events.js
+```
 
 
 
