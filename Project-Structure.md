@@ -2,7 +2,7 @@
 Directory Structure
 =================
 
-> The WAVE Architecture is implied upon the top-level source code directory _commonly_ `./src/`.
+>> The WAVE Architecture is implied upon the top-level source code directory _commonly_ `./src/`.
 The structural rules are not intended to depict the entirety of the src directory but to conflate with other modules
 required for the application.
 
