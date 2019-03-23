@@ -63,12 +63,23 @@ src/
  |   |   |--editor-details-view.js
  |   |   |--view.js
  |   |--render.js
+ |   |--events.js
+ |--routes.js
  |--state-tree.js
  |--config.json
  |--main.js
 ```
-
-
+- **background-services**: Relates to active services that run in the background of the UI as the user interacts with the application. This could relate to interactive session-timeout, href rehydration, cleanup hooks and similar timing related tasks.
+- **local-services**: Allow you to set and access browser storage (local-storage, session-storage, indexeddb, other)
+- **web-services**: Methods for using xmlhttprequest. All external data request are made here.
+- **helpers**: Helper files and or directories
+- **ui**: All visual Ui components. If a component has no view then it shouldn't belong in the ui directory
+- **state-tree.js**: A central place for stateObjects to be used globally across the application.
+- **config.json**: A human editable config that is fetched into main.js, can also be config.js if feasible.
+- **main.js**: The main application file. The root import.
+- **ui/render.js**: A function or set of functions that renders the inital views depending on when the applicaton loads.
+- **ui/events.js**: Global events that affect all aspects of the SPA.
+- **routes.js**: A list of routes using first-class functons for validation.
 
 
 
