@@ -81,13 +81,9 @@ src/
 - **ui/events.js**: Global events that affect all aspects of the SPA.
 - **routes.js**: A list of routes using first-class functons for validation.
 
-#### Guide
-##### Nesting 
-Complex nesting can cause unecessary complexities in your project. 
-Avoid deep nesting. Aim to limit folder depth to a max of 4 if possible, _this cannot always be attained_.
-Adopting a prefix can reduce folder complexites:
-
-3 deep
+##### Nesting [guide]
+Avoid deep nesting. Strive to limit the directory depth to a max of 4 levels if possible _this obviously cannot always be attained_. Adopting a prefix can sometimes reduce folder depth complexites:
+_3 levels deep_
 ```bash
 /src/ui/page/
              home/
@@ -103,7 +99,7 @@ Adopting a prefix can reduce folder complexites:
                   view.js
                   events.js
 ```
-vs  2 deep
+_2 levels deep_
 ```bash
 /src/ui/
         page-home/
