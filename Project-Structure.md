@@ -65,7 +65,7 @@ src/
  |   |--render.js
  |--state-tree.js
  |--config.json
- |--app.js
+ |--main.js
 ```
 
 
