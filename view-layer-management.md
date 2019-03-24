@@ -68,6 +68,38 @@ The registry should not be accessible outside of the selector interface.
 
 >Referencing child-components hierarchically should be avoided and does not serve as an advantage from templating or memory management.
 
+
+#### View-Layer Engine Implementation
+```javascript
+viewLayer `[ markupString ]`
+```
+
+The view-layer engine should be a tagged function or standard function that utilizes a tagged function.
+- _markupString_
+- _**namespace**_: Starts with an underscore. Mulit-level namespaces are delimited using dot-notation.
+
+
+- _**replace_existing_component**_: Allows the creation of a new component to replace an existing component in the primary registers.
+- _**purge_replace_existing_component**_: Removes the specified component from the DOM then performs _replace_existing_component_.
+-_**create_namespaces**_: Creates nested objects on primary registers using declaired _namespaces_. Namespaces are optional. The component-name serves as a namespace.  
+-_**locate_selectors**_: Detects all valid selectors within element tags. 
+-_**mark_selectors**_: Replaces the _dollar-sign_ of all found selectors with _data-selector-_.
+-_**createMarkupNode**: Creates the markupNode as HTML, SVG or XML.
+-_**removeSelectorAttributes**: Removes the data-selector attribute from a given element.
+-_**registerComponent**_
+-_**registerConstituents**_
+-_**stringArrayToString**_
+-_**elementsToFragment**_
+-_**markElements**_
+
+
+Below are minimal requirements to implement a WAVE View-Layer for the web:
+1. _markupString_ must be a template literal and have a length greater than 1
+2. _namespace_ syntax is optional. A _namespace_ must start with an underscore _(\_)_ followed by the name of the name.
+3. _nested_namespace_ can be achived by consecutive _namespace_ declarations separated by dot notation
+4. _replace_existing_component_  `@`
+
+
 ##### Selector interface 
 ```javascript
 // Get element 
