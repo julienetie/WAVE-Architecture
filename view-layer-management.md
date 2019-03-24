@@ -1,4 +1,4 @@
-> #### WAVE-Architecture
+> #### WAVE Architecture
 View-Layer Management
 =========
 
