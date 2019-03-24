@@ -2,29 +2,37 @@
 View-Layer Management
 =========
 
->>At the heart of the WAVE Architecture is a set of view-layer conventions that take strong advantage of ECMAScript 2015 (6) features. The aim of these requirements are to: 
+>>At the heart of the WAVE Architecture is a set of view-layer conventions that take strong advantage of ECMAScript 2015 (6) features. The aim of these requirements are to achieve: 
 
 - Separation of concerns 
-- Simplistic selector referencing
-- Reduce common DOM based over-egineering complexities
-- Improve DOM memeory management
+- Simplified selector referencing
+- Reduced real-world complexites for UI development
+- Improved DOM manipulation memeory management
 
+WAVE requries a view-layer engine to generate DOM components via markup-templates using [Template literals (Template strings)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals). The engine is responsible for:
 
-markupEngine that references required selectors and places them into a componentRegistry.
+- Interpreting template literals
+- Registering template namespaces
+- Registering and naming the component
+- Registering and naming constituents
+- Accessing component constituents
+- Removing components
+- Removing component constituents
 
-#### Component Registry
+##### Declarative Template definitons: 
+- Namespace: A namespaced object literal that is used to group components.
+- component-element: The topmost element of a component.
+- constituents: All elements that fall under the component defined within the same template. A component-element is also 
+part of it's own constituency.
 
-The component registry is an object containing namespaces, components and constituents. 
-- namespace: A namespaced object literal that is used to group components.
-- component element: The topmost element of a component.
-- constituents: All elements that fall under the component defined within the same template.
+Nodes are stored in two registries:
+- **Component Registry**: An object containing keys as component names and values as nodes. 
+- **Constitiuent Registry**: An object containing nested namespaces as objects and groups of constituents as a WeakMap.  
 
-Referencing child-components hierarchically should be avoided and does not serve as an advantage from templating or memory management.
-
-##### Selectors
 Selectors are define within a markup template using the dollar-sign symbol.
 Namespaces begin with an underscore and are nested by the period symbol.
 $component is a reserved word.
+
 ```html
 import markupEngine from 'markup-engine'; // library agnostic 
 
@@ -37,6 +45,7 @@ export default () => markupEngine `_messages._introductory
 `;
 ```
 The above will be stored in registry using the following convention.
+##### Constituent Registry
 ```bash
 selectorRegistry:                        Object
       _messages:                         Object
@@ -47,13 +56,17 @@ selectorRegistry:                        Object
                             - $greeting: Node     
                             - $followUp: Node
                             - $content:  Node
-
+```
+##### Component Registry
+```javascript
 componentRegistry:                       Object
       _messages:                         Object
            _introductory:                Object
                  $welcomeMessage:        Node
 ```
 The registry should not be accessible outside of the selector interface. 
+
+>Referencing child-components hierarchically should be avoided and does not serve as an advantage from templating or memory management.
 
 ##### Selector interface 
 ```javascript
