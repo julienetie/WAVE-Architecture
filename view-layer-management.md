@@ -1,4 +1,4 @@
-Selectors
+View-Layer Management
 =========
 
 markupEngine that references required selectors and places them into a componentRegistry.
