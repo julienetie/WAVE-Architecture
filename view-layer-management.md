@@ -19,19 +19,19 @@ WAVE requries a view-layer engine to generate DOM components via markup-template
 - Removing components
 - Removing component constituents
 
-##### Declarative Template definitons: 
-- Namespace: A namespaced object literal that is used to group components.
-- component-element: The topmost element of a component.
-- constituents: All elements that fall under the component defined within the same template. A component-element is also 
-part of it's own constituency.
 
-Nodes are stored in two registries:
+
+
+##### Declarative Template definitons: 
+- **component-element**: The topmost element of a component.
+- **constituents**: All selector-elements. A component-element is also a constituent. 
+- Selectors: Are define within a markup template using the dollar-sign symbol.
+- Namespaces: Begin with an underscore and are nested using dot notation.
+- $component is a reserved word
+
+##### Node-Registries:
 - **Component Registry**: An object containing keys as component names and values as nodes. 
 - **Constitiuent Registry**: An object containing nested namespaces as objects and groups of constituents as a WeakMap.  
-
-Selectors are define within a markup template using the dollar-sign symbol.
-Namespaces begin with an underscore and are nested by the period symbol.
-$component is a reserved word.
 
 ```html
 import markupEngine from 'markup-engine'; // library agnostic 
@@ -46,7 +46,7 @@ export default () => markupEngine `_messages._introductory
 ```
 The above will be stored in registry using the following convention.
 ##### Constituent Registry
-```bash
+```javascript
 selectorRegistry:                        Object
       _messages:                         Object
            _introductory:                Object
