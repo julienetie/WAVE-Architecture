@@ -1,5 +1,14 @@
+> #### WAVE-Architecture
 View-Layer Management
 =========
+
+>>At the heart of the WAVE Architecture is a set of view-layer conventions that take strong advantage of ECMAScript 2015 (6) features. The aim of these requirements are to: 
+
+- Separation of concerns 
+- Simplistic selector referencing
+- Reduce common DOM based over-egineering complexities
+- Improve DOM memeory management
+
 
 markupEngine that references required selectors and places them into a componentRegistry.
 
