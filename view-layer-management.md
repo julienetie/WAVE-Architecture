@@ -81,16 +81,16 @@ The view-layer engine should be a tagged function or standard function that util
 
 - _**replace_existing_component**_: Allows the creation of a new component to replace an existing component in the primary registers.
 - _**purge_replace_existing_component**_: Removes the specified component from the DOM then performs _replace_existing_component_.
--_**create_namespaces**_: Creates nested objects on primary registers using declaired _namespaces_. Namespaces are optional. The component-name serves as a namespace.  
--_**locate_selectors**_: Detects all valid selectors within element tags. 
--_**mark_selectors**_: Replaces the _dollar-sign_ of all found selectors with _data-selector-_.
--_**createMarkupNode**: Creates the markupNode as HTML, SVG or XML.
--_**removeSelectorAttributes**: Removes the data-selector attribute from a given element.
--_**registerComponent**_
--_**registerConstituents**_
--_**stringArrayToString**_
--_**elementsToFragment**_
--_**markElements**_
+- _**create_namespaces**_: Creates nested objects on primary registers using declaired _namespaces_. Namespaces are optional. The component-name serves as a namespace.  
+- _**locate_selectors**_: Detects all valid selectors within element tags. 
+- _**mark_selectors**_: Replaces the _dollar-sign_ of all found selectors with _data-selector-_.
+- _**createMarkupNode**: Creates the markupNode as HTML, SVG or XML.
+- _**removeSelectorAttributes**: Removes the data-selector attribute from a given element.
+- _**registerComponent**_
+- _**registerConstituents**_
+- _**stringArrayToString**_
+- _**elementsToFragment**_
+- _**markElements**_
 
 
 Below are minimal requirements to implement a WAVE View-Layer for the web:
