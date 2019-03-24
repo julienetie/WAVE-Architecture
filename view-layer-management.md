@@ -92,6 +92,12 @@ The view-layer engine should be a tagged function or standard function that util
 - _**elementsToFragment**_
 - _**markElements**_
 
+### configuration
+- preserveSelectors: Preserves selectors from e.g. `$selectorName` to `data-$="$selectorName".
+- data$Name: Changes `data-$="$selectorName="` to `data-component=` if value is "component".
+- middleWare: An array of functions to be executed that exposes the primary registries on each update. This can interface with an event system.
+
+
 
 Below are minimal requirements to implement a WAVE View-Layer for the web:
 1. _markupString_ must be a template literal and have a length greater than 1
@@ -111,12 +117,14 @@ $.get('$welcomeMessage').thenRemove(); // Removes reference from registry after 
 
 $.deleteChild('$welcomeMessage', '$greeting') // Replaces the weakmap without the child
 $.delete('_messages._introductory.$welcomeMessage'); // deletes component from registry (not DOM)
+$.deleteAll();
 
 // Removes element and references from the registry 
 $.purge('_messages._introductory.$welcomeMessage');
 $.purge('$welcomeMessage'); // Remove first found 
 $.purge('$welcomeMessage:1'); // Remove 2nd found
 $.purge('$welcomeMessage:all'); // Removes all
+$.purgeAll();
 
 // set @: If a new template is created it will throw an error if there is a naming conflict 
 Unless the namespace is prefixed with an @ sign.
