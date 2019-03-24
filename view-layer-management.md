@@ -93,9 +93,9 @@ The view-layer engine should be a tagged function or standard function that util
 - _**markElements**_
 
 ### configuration
-- preserveSelectors: Preserves selectors from e.g. `$selectorName` to `data-$="$selectorName".
-- data$Name: Changes `data-$="$selectorName="` to `data-component=` if value is "component".
-- middleWare: An array of functions to be executed that exposes the primary registries on each update. This can interface with an event system.
+- **preserveSelectors**: Preserves selectors from e.g. `$selectorName` to `data-$="$selectorName".
+- **data$Name**: Changes `data-$="$selectorName="` to `data-component=` if value is "component".
+- **middleware**: An array of functions to be executed that exposes the primary registries on each update. This can interface with an event system.
 
 
 
