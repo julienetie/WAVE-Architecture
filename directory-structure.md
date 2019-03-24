@@ -85,6 +85,7 @@ src/
 
 ##### Nesting [guide]
 Avoid deep nesting. Strive to limit the directory depth to a max of 4 levels if possible _this obviously cannot always be attained_. Adopting a prefix can sometimes reduce folder depth complexities:
+
 _3 levels deep_
 ```bash
 /src/ui/page/
