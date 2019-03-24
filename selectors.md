@@ -55,8 +55,8 @@ $.get('$welcomeMessage:1'); // Will traverse componentRegistry for the 2nd compo
 $.get('$welcomeMessage:all'); // Will traverse componentRegistry for all matching component references.
 $.get('$welcomeMessage').thenRemove(); // Removes reference from registry after returning the node, will also remove constituents 
 
-$.removeChild('$welcomeMessage', '$greeting') // Replaces the weakmap without the child
-$.remove('_messages._introductory.$welcomeMessage'); // Removes component from registry (not DOM)
+$.deleteChild('$welcomeMessage', '$greeting') // Replaces the weakmap without the child
+$.delete('_messages._introductory.$welcomeMessage'); // deletes component from registry (not DOM)
 
 // Removes element and references from the registry 
 $.purge('_messages._introductory.$welcomeMessage');
@@ -66,5 +66,59 @@ $.purge('$welcomeMessage:all'); // Removes all
 
 // set @: If a new template is created it will throw an error if there is a naming conflict 
 Unless the namespace is prefixed with an @ sign.
+```
+##### Nesting Components
+The WAVE Architecture aims to simplfy how we interact with the DOM from a practical pespective rather than a
+technically capable perspective. Nesting references is not desirable when building componets within the DOM 
+as it creates complexiteis that have little to no benefit. 
 
-`
+###### Embedding Elements
+```html
+export default ({ anHTMLElement }) => markupEngine `_messages._introductory 
+<div $welcomeMessage >
+  <h1 $greeting >Hello World</h1>
+  <h2 $followUp >How are you?</h2>
+  <article $content >${ anHTMLElement }</article>
+</div>
+`;
+```
+The above element will be apended as part of the final component but will purposely not be referenced
+or traversed. The markup-engine will assume that the element was created using WAVE principles therefore 
+it should already exist in the registries. 
+
+An array of elements can also be embedded and will be appended in order.
+
+```html
+export default ({ arrayOfHTMLElements }) => markupEngine `_messages._introductory 
+<div $welcomeMessage >
+  <h1 $greeting >Hello World</h1>
+  <h2 $followUp >How are you?</h2>
+  <article $content >${ arrayOfHTMLElements }</article>
+</div>
+`;
+```
+###### Embedding Strings
+```html
+export default ({ contentComponentStr }) => markupEngine `_messages._introductory 
+<div $welcomeMessage >
+  <h1 $greeting >Hello World</h1>
+  <h2 $followUp >How are you?</h2>
+  <article $content >${ contentComponentStr }</article>
+</div>
+`;
+```
+`contentComponentStr` is a string that represents part of the component, therefore the defined constituents within the string will be registered under $welcomeMessage. 
+
+An array of strings can also be embeded, each item will be referenced if they contain selector names.
+
+```html
+export default ({ itemsStr }) => markupEngine `_messages._introductory 
+<div $welcomeMessage >
+  <h1 $greeting >Hello World</h1>
+  <h2 $followUp >How are you?</h2>
+  <article $content >${ itemsStr }</article>
+</div>
+`;
+```
+###### Using querySelector and querySelectorAll
+The markup-engine elminates the need for querySelector and querySelectorAll for most use-cases but there is no restriction on use of querySelector or querySelectorAll but they should be avoided as an alternative for referencing created nodes.
