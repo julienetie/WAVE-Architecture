@@ -184,3 +184,13 @@ export default ({ itemsStr }) => markupEngine `_messages._introductory
 ```
 ###### Using querySelector and querySelectorAll
 The markup-engine elminates the need for querySelector and querySelectorAll for most use-cases but there is no restriction on use of querySelector or querySelectorAll but they should be avoided as an alternative for referencing created nodes.
+
+
+
+
+
+
+> A component should start with an opening tag.
+> If a namespace is not defined then the component name becomes the namespace
+> A namespace must be followed with a component name
+> A component can have no namespace and component name, it will be created but not registered 
