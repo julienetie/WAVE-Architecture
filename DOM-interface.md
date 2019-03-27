@@ -71,3 +71,4 @@ that can be used with the WAVE Architecture, it must be stressed to only use wha
 - append()
 - prepend()
 - insertAdjacentElement()
+- insertAdjacentText(where, data)
