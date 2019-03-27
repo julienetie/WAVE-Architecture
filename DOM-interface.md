@@ -70,3 +70,4 @@ that can be used with the WAVE Architecture, it must be stressed to only use wha
 - before()
 - append()
 - prepend()
+- insertAdjacentElement()
