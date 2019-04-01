@@ -1,4 +1,4 @@
-DOM Store Memory Management Methods
+Node Lifecycle Methods
 =================
 
 This document defines a set of methods for managing DOM elements within a library store.
@@ -12,20 +12,27 @@ Validate <document-object>
 - if <document-object> is undefined <context-object> is window.document. 
 - if <document-object> instanceof HTMLDocument is false abort purge.
 - Return true.
+  
+  
+LookupNode
+1. TBA
+  
+<selector>: [node](https://developer.mozilla.org/en-US/docs/Web/API/Node) | [CSS-selector](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors) | library-specific-selector
 
 
 ### delete(<selector>)
-When delete is invoked with a selector 
-1. If validateDocumentObject is true continue.
-2. The corresponding node of the selector is found.
-3. All references to that node is removed from all stores maintained by the library.
+- Lookup datasets referencing the given node using the selector
+- If no reference is found aboart delete
+- Else remove the node's reference from aforementioned datasets
+ 
 
 ### purge(<document-object>, <selector>)
-1. If validateDocumentObject is true continue.
-1. When purge is invoked with a selector   
-2. The <document-object> is queried using the given selector.
-3. If the node is found it will be removed from the DOM.
-4. delete(node) will be performed.
+- If document-object is undefined document-object is window.document
+- The selector is queried against the document-object to return the queriedNode
+- if queriedNode is null invole delete(<node>)
+- Else if queryiedNode is a node and is owned by the document-object remove the node.
+- - Then invoke delete(<node>)
+  
 
 ### clense(<document-object>, <selector>)
 1. If validateDocumentObject is true continue.
@@ -42,3 +49,4 @@ When delete is invoked with a selector
 5. If the node is disconnected from the <document-object> replace the node with <replacement-selector>
 
 
+Invoke lookupNode with parameter _selector_ 
