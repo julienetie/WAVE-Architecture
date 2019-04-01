@@ -26,12 +26,14 @@ LookupNode
 - Else remove the node's reference from aforementioned datasets
  
 
-### purge(<document-object>, <selector>)
+### purge(_document-object_, _selector_)
 - If document-object is undefined document-object is window.document
 - The selector is queried against the document-object to return the queriedNode
-- if queriedNode is null invole delete(<node>)
-- Else if queryiedNode is a node and is owned by the document-object remove the node.
-- - Then invoke delete(<node>)
+- if queriedNode is null 
+- - Invole delete(_node_)
+- Else if queryiedNode is a node and is owned by the document-object 
+  - Invoke Node.remove()
+- - Invoke delete(_node_)
   
 
 ### clense(<document-object>, <selector>)
