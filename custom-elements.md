@@ -3,6 +3,23 @@
 #### Autonomous Custom Element
 Based on `HTMLElement`
 
+```javascript
+wave `
+_sidebars
+define: ${{
+ constructor: HTMLElement,
+ observedAttributes: [],
+ attributeChangedCallback,
+ connectedCallback,
+ disconnectedCallback,
+ adoptedCallback,
+ connectedCallback,
+}}
+<left-sidebar shadow="close">
+  <div>Left Sidebar<div>
+</left-sidebar>`
+```
+
 #### Customized Built-in Element
 Based on built-in Elements. E.g. `HTMLButtonElement`
 
@@ -19,3 +36,8 @@ An array of observed attributes
 #### Lifecycle callbacks
 An object of lifecycle methods, element is passes as the first param 
 
+#### Attach Shadow 
+```javascript
+`<some-element $someElement shadow="open"`
+```
+$someElement.shoadowRoot
