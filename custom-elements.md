@@ -4,17 +4,18 @@
 Based on `HTMLElement`
 
 ```javascript
-wave `
-_sidebars
-define: ${{
- constructor: HTMLElement,
- observedAttributes: [],
+// Controller
+cont helloElement = customElement('HelloElement', HTMLElement, {
+  observedAttributes: [],
  attributeChangedCallback,
  connectedCallback,
  disconnectedCallback,
  adoptedCallback,
  connectedCallback,
-}}
+});
+
+wave `
+_sidebars
 <left-sidebar shadow="close">
   <div>Left Sidebar<div>
 </left-sidebar>`
